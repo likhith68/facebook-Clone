@@ -8,23 +8,24 @@ import Widgets from "../components/Widgets";
 
 export default function Home() {
   const { data: session } = useSession();
+  if (!session) return <Login />;
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
-      {session ? (
-        <>
-          <Header />
-          <main className="flex">
-            {/* Sidebar  */}
-            <Sidebar />
-            {/* Feed */}
-            <Feed />
-            {/* Widgets */}
-            <Widgets />
-          </main>
-        </>
+      {/* {session ? (
+        <> */}
+      <Header />
+      <main className="flex">
+        {/* Sidebar  */}
+        <Sidebar />
+        {/* Feed */}
+        <Feed />
+        {/* Widgets */}
+        <Widgets />
+      </main>
+      {/* </>
       ) : (
         <Login />
-      )}
+      )} */}
 
       <Head>
         <title>Facebook - Clone</title>

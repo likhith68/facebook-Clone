@@ -65,11 +65,14 @@ function Header() {
             >
               <div className="flex items-center space-x-2 hover:bg-gray-200 rounded-full p-2 justify-end md:space-x-3 lg:space-x-4">
                 <Avatar
+                  onClick={signOut}
                   className="cursor-pointer"
                   src={session?.user?.image}
-                  onClick={signOut}
                 />
-                <p className="font-semibold whitespace-nowrap hidden lg:inline-flex">
+                <p
+                  onClick={signOut}
+                  className="cursor-pointer font-semibold whitespace-nowrap hidden lg:inline-flex"
+                >
                   {session?.user?.name}
                 </p>
               </div>
