@@ -62,14 +62,16 @@ function Header() {
               className="hover:bg-gray-200 rounded-full flex p-2 items-center justify-end space-x-2 md:space-x-3 lg:space-x-4"
               href="/auth/signin"
             >
-              <Avatar
-                className="cursor-pointer"
-                src={session?.user?.image}
-                onClick={signOut}
-              />
-              <p className="font-semibold whitespace-nowrap hidden lg:inline-flex">
-                {session?.user?.name}
-              </p>
+              <div className="flex items-center space-x-2 hover:bg-gray-200 rounded-full p-2 justify-end md:space-x-3 lg:space-x-4">
+                <Avatar
+                  className="cursor-pointer"
+                  src={session?.user?.image}
+                  onClick={signOut}
+                />
+                <p className="font-semibold whitespace-nowrap hidden lg:inline-flex">
+                  {session?.user?.name}
+                </p>
+              </div>
             </Link>
 
             <ViewGridIcon className="icon" />
