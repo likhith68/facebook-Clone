@@ -58,7 +58,7 @@ function Header() {
       {session ? (
         <>
           <div className="flex items-center justify-end space-x-2 md:space-x-3 lg:space-x-4 ">
-            <Link
+            <a
               className="hover:bg-gray-200 rounded-full flex p-2 items-center justify-end space-x-2 md:space-x-3 lg:space-x-4"
               href="/auth/signin"
             >
@@ -72,7 +72,7 @@ function Header() {
                   {session?.user?.name}
                 </p>
               </div>
-            </Link>
+            </a>
 
             <ViewGridIcon className="icon" />
             <ChatIcon className="icon" />
