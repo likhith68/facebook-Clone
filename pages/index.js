@@ -7,7 +7,7 @@ import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
 
 export default function Home() {
-  const { data: session } = useSession();
+  const { session } = useSession();
   if (!session) return <Login />;
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
