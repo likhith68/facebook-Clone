@@ -7,14 +7,11 @@ import Login from "../components/Login";
 import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
 
-export default function Home({ session }) {
-  var [data, setData] = useState([]);
-  if (session) {
-    setData(session);
-  }
+export default function Home() {
+  const { data: session } = useSession();
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
-      {data ? (
+      {session ? (
         <>
           <Header />
           <main className="flex">
