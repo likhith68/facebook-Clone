@@ -5,15 +5,20 @@ import Posts from "./Posts";
 import Stories from "./Stories";
 
 function Feed() {
+  const { data: session } = useSession();
   return (
     <div className="mb-52 pb-40 h-screen overflow-y-auto xl:mr-40 mr-4 max-w-xl mx-auto md:max-w-2xl md:mx-auto lg:max-w-3xl lg:mx-auto xl:max-w-3xl xl:mx-56 scrollbar-hide">
-      <Stories />
+      {session ? (
+        <>
+          <Stories />
 
-      {/* Post Input Box */}
-      <InputBox />
+          <InputBox />
 
-      {/* Posts */}
-      <Posts />
+          <Posts />
+        </>
+      ) : (
+        <Posts />
+      )}
     </div>
   );
 }

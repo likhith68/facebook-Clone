@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import HeaderIcon from "./HeaderIcon";
 import {
@@ -63,16 +63,12 @@ function Header() {
               className="hover:bg-gray-200 rounded-full flex p-2 items-center justify-end space-x-2 md:space-x-3 lg:space-x-4"
               href={<Login />}
             >
-              <div className="flex items-center space-x-2 hover:bg-gray-200 rounded-full p-2 justify-end md:space-x-3 lg:space-x-4">
-                <Avatar
-                  onClick={signOut}
-                  className="cursor-pointer"
-                  src={session?.user?.image}
-                />
-                <p
-                  onClick={signOut}
-                  className="cursor-pointer font-semibold whitespace-nowrap hidden lg:inline-flex"
-                >
+              <div
+                onClick={signOut}
+                className="flex items-center space-x-2 hover:bg-gray-200 rounded-full p-2 justify-end md:space-x-3 lg:space-x-4"
+              >
+                <Avatar className="cursor-pointer" src={session?.user?.image} />
+                <p className="cursor-pointer font-semibold whitespace-nowrap hidden lg:inline-flex">
                   {session?.user?.name}
                 </p>
               </div>
@@ -87,8 +83,11 @@ function Header() {
       ) : (
         <div className="flex items-center justify-end space-x-2 md:space-x-3 lg:space-x-4">
           <p className="font-semibold whitespace-nowrap lg:inline-flex pl-10 pr-10">
-            <button className="p-2 pl-3 pr-3 rounded-md normal-case bg-blue-500 text-white font-sans hover:bg-blue-800">
-              <Link href="auth/signin">SignIn</Link>
+            <button
+              onClick={signIn}
+              className="p-2 pl-3 pr-3 rounded-md normal-case bg-blue-500 text-white font-sans hover:bg-blue-800"
+            >
+              Sign In
             </button>
           </p>
         </div>

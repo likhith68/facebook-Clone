@@ -1,5 +1,6 @@
 import { getSession, useSession } from "next-auth/react";
 import Head from "next/head";
+import { useRef, useState } from "react";
 import Feed from "../components/Feed";
 import Header from "../components/Header";
 import Login from "../components/Login";
@@ -7,24 +8,27 @@ import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
 
 export default function Home({ session }) {
-  if (!session) return <Login />;
+  var [data, setData] = useState([]);
+  if (session) {
+    setData(session);
+  }
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
-      {/* {session ? (
-        <> */}
-      <Header />
-      <main className="flex">
-        {/* Sidebar  */}
-        <Sidebar />
-        {/* Feed */}
-        <Feed />
-        {/* Widgets */}
-        <Widgets />
-      </main>
-      {/* </>
+      {data ? (
+        <>
+          <Header />
+          <main className="flex">
+            {/* Sidebar  */}
+            <Sidebar />
+            {/* Feed */}
+            <Feed />
+            {/* Widgets */}
+            <Widgets />
+          </main>
+        </>
       ) : (
         <Login />
-      )} */}
+      )}
 
       <Head>
         <title>Facebook - Clone</title>
